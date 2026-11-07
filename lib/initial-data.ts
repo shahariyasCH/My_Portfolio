@@ -80,8 +80,8 @@ export const defaultProfile: ProfileData = {
   statement:
     "Professional Python Full Stack Developer with advanced backend expertise in Django REST Framework and frontend proficiency in React JS. Specializes in designing scalable and secure REST APIs, managing database migrations, and implementing robust JWT authentication systems. Adept at developing efficient CRUD operations and delivering innovative technical solutions. Also experienced in React Native, Flutter, and PHP Laravel, with a strong focus on cross-platform mobile development and high-performance web applications.",
   email: "shahariyaschatheri10@gmail.com",
-  phone: "+91 9061451636",
-  location: "Tirur, Kerala, India",
+  phone: "+971 54 153 3979",
+  location: "Dubai, UAE",
   availabilityStatus: "Open to opportunities",
   resumeUrl: "/resume.pdf",
   githubUrl: "https://github.com",
@@ -105,6 +105,7 @@ export const defaultExperiences: ExperienceData[] = [
       "Engineered end-to-end bot flows for high-volume business processes, including exception handling, dynamic queue management, and error recovery.",
       "Developed custom automation scripts in Python/JavaScript for API integration, web scraping, and data transformation to extend RPA platform capabilities.",
       "Designed and implemented API-driven workflows, connecting RPA bots with REST/GraphQL services and legacy systems to enable seamless data exchange.",
+      "Completed 50+ n8n agentic and non-agentic automations.",
     ],
     techTags: [
       "Python",
@@ -124,8 +125,8 @@ export const defaultExperiences: ExperienceData[] = [
     title: "Python Full Stack Developer",
     location: "Kochi, Kerala",
     startDate: "Sep 2024",
-    endDate: null,
-    isCurrent: true,
+    endDate: "Jun 2025",
+    isCurrent: false,
     order: 2,
     responsibilities: [
       "Built secure, scalable, and modular back-end architectures using Python and Django.",

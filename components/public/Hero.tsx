@@ -39,7 +39,7 @@ export default function Hero({
   availabilityStatus = "Open to opportunities",
   resumeUrl = "/resume.pdf",
   email = "shahariyaschatheri10@gmail.com",
-  location = "Kerala, India",
+  location = "Dubai, UAE",
 }: HeroProps) {
   const [copied, setCopied] = useState(false);
 

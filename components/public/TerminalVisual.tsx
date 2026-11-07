@@ -31,7 +31,7 @@ export default function TerminalVisual({
   const demoCommands = [
     { cmd: "whoami", output: `Shahariyas :: ${title}` },
     { cmd: "skills --core", output: `[ ${skills.slice(0, 5).join(", ")} ]` },
-    { cmd: "status --check", output: `Status: 🟢 ${availability} | Location: Tirur, Kerala` },
+    { cmd: "status --check", output: `Status: 🟢 ${availability} | Location: Dubai, UAE` },
   ];
 
   // Auto-typing demo simulation
@@ -128,7 +128,7 @@ export default function TerminalVisual({
       case "contact":
         newHistory.push({
           type: "output",
-          text: `Email: shahariyaschatheri10@gmail.com | Phone: +91 9061451636`,
+          text: `Email: shahariyaschatheri10@gmail.com | Phone: +971 54 153 3979`,
           color: "text-cyan-300",
         });
         break;

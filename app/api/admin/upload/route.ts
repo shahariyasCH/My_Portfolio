@@ -32,8 +32,8 @@ export async function POST(req: NextRequest) {
           headline: "Building scalable web applications",
           statement: "",
           email: "shahariyaschatheri10@gmail.com",
-          phone: "+91 9061451636",
-          location: "Tirur, Kerala, India",
+          phone: "+971 54 153 3979",
+          location: "Dubai, UAE",
           resumeUrl: fileUrl,
         },
       });

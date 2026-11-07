@@ -28,7 +28,7 @@ interface Message {
   text: string;
   timestamp: string;
   action?: {
-    type: "scroll" | "email" | "resume" | "call";
+    type: "scroll" | "email" | "resume" | "call" | "link";
     target?: string;
     label: string;
   };
@@ -47,8 +47,8 @@ export default function ShahariyasAssistant({
   name = "Shahariyas",
   title = "Python Full Stack Developer & Lead Automation Engineer",
   email = "shahariyaschatheri10@gmail.com",
-  phone = "+91 9061451636",
-  location = "Tirur, Kerala, India",
+  phone = "+971 54 153 3979",
+  location = "Dubai, UAE",
   resumeUrl = "/resume.pdf",
 }: AssistantProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -301,18 +301,30 @@ export default function ShahariyasAssistant({
       q.includes("reach") ||
       q.includes("hire") ||
       q.includes("interview") ||
-      q.includes("available")
+      q.includes("available") ||
+      q.includes("whatsapp") ||
+      q.includes("dubai")
     ) {
+      if (q.includes("whatsapp")) {
+        return {
+          text: `You can reach Shahariyas directly on WhatsApp at ${phone} for quick messages, discussions, and interview coordination!`,
+          action: {
+            type: "link",
+            target: `https://wa.me/${phone.replace(/[^0-9]/g, "")}`,
+            label: `Open WhatsApp (${phone})`,
+          },
+        };
+      }
       return {
-        text: `Shahariyas is actively open to full-time software engineering roles, backend contracts, and automation development.
-• Email: ${email}
+        text: `Shahariyas is based in ${location} and actively open to full-stack engineering, Python backend, and AI/automation opportunities.
 • Phone: ${phone}
-• Location: ${location} (Open to remote and relocation)
-You can message him directly or schedule a conversation!`,
+• Email: ${email}
+• Location: ${location} (Available immediately, open to remote and local UAE opportunities)
+Feel free to contact him directly via email or WhatsApp!`,
         action: {
-          type: "email",
-          target: `mailto:${email}`,
-          label: `Email ${email}`,
+          type: "link",
+          target: `https://wa.me/${phone.replace(/[^0-9]/g, "")}`,
+          label: `Chat on WhatsApp (${phone})`,
         },
       };
     }
@@ -423,8 +435,10 @@ You can message him directly or schedule a conversation!`,
       }
     } else if (action.type === "email" && action.target) {
       window.location.href = action.target;
-    } else if (action.type === "resume" && action.target) {
+    } else if ((action.type === "resume" || action.type === "link") && action.target) {
       window.open(action.target, "_blank");
+    } else if (action.type === "call" && action.target) {
+      window.location.href = action.target;
     }
   };
 

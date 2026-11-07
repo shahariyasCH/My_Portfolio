@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Github, Linkedin, Sparkles } from "lucide-react";
+import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Github, Linkedin, Sparkles, MessageCircle } from "lucide-react";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -25,8 +25,8 @@ interface ContactProps {
 
 export default function Contact({
   email = "shahariyaschatheri10@gmail.com",
-  phone = "+91 9061451636",
-  location = "Tirur, Kerala, India",
+  phone = "+971 54 153 3979",
+  location = "Dubai, UAE",
   githubUrl = "https://github.com",
   linkedinUrl = "https://linkedin.com",
 }: ContactProps) {
@@ -115,6 +115,21 @@ export default function Contact({
                   <div>
                     <div className="text-[11px] font-mono text-slate-400 uppercase">Phone Number</div>
                     <div className="font-semibold text-slate-800">{phone}</div>
+                  </div>
+                </a>
+
+                <a
+                  href="https://wa.me/971541533979"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start space-x-3.5 p-3 rounded-2xl bg-emerald-50/50 hover:bg-emerald-50 border border-emerald-200/70 hover:border-emerald-300 text-sm text-slate-700 hover:text-slate-900 transition-all group"
+                >
+                  <div className="p-2 rounded-xl bg-white border border-emerald-200 text-emerald-600 group-hover:scale-105 transition-transform shadow-2xs">
+                    <MessageCircle className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-mono text-emerald-700 font-semibold uppercase">WhatsApp Direct</div>
+                    <div className="font-semibold text-slate-800">+971 54 153 3979</div>
                   </div>
                 </a>
 

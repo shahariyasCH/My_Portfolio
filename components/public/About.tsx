@@ -16,7 +16,7 @@ export default function About({
   title = "Python Full Stack Developer & Lead Automation Engineer",
   headline = "Bridging robust backend engineering, full-stack web development, and robotic process automation.",
   statement = "Professional Python Full Stack Developer with advanced backend expertise in Django REST Framework and frontend proficiency in React JS. Specializes in designing scalable and secure REST APIs, managing database migrations, and implementing robust JWT authentication systems.",
-  location = "Kerala, India",
+  location = "Dubai, UAE",
 }: AboutProps) {
   const highlights = [
     {
