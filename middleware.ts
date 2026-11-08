@@ -4,13 +4,23 @@ import type { NextRequest } from "next/server";
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
+  const secret = process.env.NEXTAUTH_SECRET || "fallback-secret-for-development-key";
 
-  // Protect all /admin routes except /admin/login
+  // 1. Protect all /api/admin/* API endpoints (return 401 JSON if unauthorized)
+  if (pathname.startsWith("/api/admin")) {
+    const token = await getToken({ req, secret });
+    if (!token) {
+      return NextResponse.json(
+        { error: "Unauthorized: Administrator authentication required" },
+        { status: 401 }
+      );
+    }
+    return NextResponse.next();
+  }
+
+  // 2. Protect all /admin routes except /admin/login
   if (pathname.startsWith("/admin") && pathname !== "/admin/login") {
-    const token = await getToken({
-      req,
-      secret: process.env.NEXTAUTH_SECRET || "fallback-secret-for-development-key",
-    });
+    const token = await getToken({ req, secret });
 
     if (!token) {
       const loginUrl = new URL("/admin/login", req.url);
@@ -19,12 +29,9 @@ export async function middleware(req: NextRequest) {
     }
   }
 
-  // If already logged in and visiting /admin/login, redirect to /admin dashboard
+  // 3. If already logged in and visiting /admin/login, redirect to /admin dashboard
   if (pathname === "/admin/login") {
-    const token = await getToken({
-      req,
-      secret: process.env.NEXTAUTH_SECRET || "fallback-secret-for-development-key",
-    });
+    const token = await getToken({ req, secret });
 
     if (token) {
       return NextResponse.redirect(new URL("/admin", req.url));
@@ -35,5 +42,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*"],
+  matcher: ["/admin/:path*", "/api/admin/:path*"],
 };

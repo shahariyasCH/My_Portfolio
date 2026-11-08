@@ -56,6 +56,7 @@ export default function ShahariyasAssistant({
   const [isListening, setIsListening] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [voiceEnabled, setVoiceEnabled] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [transcriptPreview, setTranscriptPreview] = useState("");
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -393,8 +394,8 @@ Feel free to contact him directly via email or WhatsApp!`,
     };
   };
 
-  const handleUserQuery = (query: string) => {
-    if (!query.trim()) return;
+  const handleUserQuery = async (query: string) => {
+    if (!query.trim() || isLoading) return;
 
     stopSpeaking();
 
@@ -407,22 +408,45 @@ Feel free to contact him directly via email or WhatsApp!`,
 
     setMessages((prev) => [...prev, userMessage]);
     setInputText("");
+    setIsLoading(true);
 
-    // Simulate swift AI thinking & response
-    setTimeout(() => {
-      const response = answerKnowledge(query);
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: query }),
+      });
+
+      if (!res.ok) throw new Error("Chat API non-ok status");
+
+      const data = await res.json();
+      const assistantMessage: Message = {
+        id: `assistant-${Date.now()}`,
+        sender: "assistant",
+        text: data.text,
+        timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+        action: data.action,
+      };
+
+      setMessages((prev) => [...prev, assistantMessage]);
+      speakText(data.text);
+    } catch (err) {
+      console.warn("Chat API unavailable, falling back to local knowledge base:", err);
+      const fallback = answerKnowledge(query);
 
       const assistantMessage: Message = {
         id: `assistant-${Date.now()}`,
         sender: "assistant",
-        text: response.text,
+        text: fallback.text,
         timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-        action: response.action,
+        action: fallback.action,
       };
 
       setMessages((prev) => [...prev, assistantMessage]);
-      speakText(response.text);
-    }, 350);
+      speakText(fallback.text);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleActionClick = (action: Message["action"]) => {
@@ -628,6 +652,20 @@ Feel free to contact him directly via email or WhatsApp!`,
                 </span>
               </div>
             ))}
+
+            {/* Thinking / Generating Indicator */}
+            {isLoading && (
+              <div className="flex flex-col items-start animate-in fade-in duration-150">
+                <div className="max-w-[88%] rounded-2xl p-3 bg-slate-100/90 text-slate-600 rounded-tl-none border border-slate-200/60 flex items-center space-x-2">
+                  <div className="flex items-center space-x-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-bounce" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-sky-500 animate-bounce [animation-delay:0.2s]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-violet-500 animate-bounce [animation-delay:0.4s]" />
+                  </div>
+                  <span className="text-xs text-slate-500 font-medium">Shahariyas Assistant is thinking...</span>
+                </div>
+              </div>
+            )}
             <div ref={messagesEndRef} />
           </div>
 
@@ -681,7 +719,7 @@ Feel free to contact him directly via email or WhatsApp!`,
             {/* Send Button */}
             <button
               onClick={() => handleUserQuery(inputText)}
-              disabled={!inputText.trim()}
+              disabled={!inputText.trim() || isLoading}
               className="p-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 disabled:opacity-40 text-white transition-all cursor-pointer disabled:cursor-not-allowed shadow-xs"
               aria-label="Send query"
             >

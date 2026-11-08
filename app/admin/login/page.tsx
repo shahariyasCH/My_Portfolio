@@ -4,15 +4,16 @@ import React, { useState, Suspense } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { Shield, Lock, Mail, ArrowRight, AlertCircle, Home, KeyRound } from "lucide-react";
+import { Shield, Lock, Mail, ArrowRight, AlertCircle, Home, KeyRound, Eye, EyeOff } from "lucide-react";
 
 function AdminLoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") || "/admin";
 
-  const [email, setEmail] = useState("shahariyaschatheri10@gmail.com");
-  const [password, setPassword] = useState("Shahariyas@Admin2026!");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -23,14 +24,14 @@ function AdminLoginForm() {
 
     try {
       const res = await signIn("credentials", {
-        email,
+        email: email.trim().toLowerCase(),
         password,
         redirect: false,
         callbackUrl,
       });
 
       if (res?.error) {
-        setError("Invalid email or password. Please verify credentials.");
+        setError("Invalid email or password. Please verify your credentials.");
       } else {
         router.push(callbackUrl);
         router.refresh();
@@ -71,17 +72,6 @@ function AdminLoginForm() {
             </p>
           </div>
 
-          {/* Seed credentials hint badge */}
-          <div className="p-3.5 rounded-xl bg-zinc-50 border border-zinc-200 text-xs text-zinc-800 flex items-start space-x-2.5">
-            <KeyRound className="w-4 h-4 text-zinc-600 shrink-0 mt-0.5" />
-            <div className="space-y-0.5">
-              <div className="font-semibold text-zinc-900">Pre-seeded Admin Account:</div>
-              <div className="font-mono text-[11px] text-zinc-600 break-all">
-                shahariyaschatheri10@gmail.com
-              </div>
-            </div>
-          </div>
-
           {/* Login Form */}
           <form onSubmit={handleSubmit} className="space-y-4">
             {error && (
@@ -98,6 +88,7 @@ function AdminLoginForm() {
                 <input
                   type="email"
                   required
+                  autoComplete="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="admin@domain.com"
@@ -113,13 +104,22 @@ function AdminLoginForm() {
               <div className="relative">
                 <Lock className="w-4 h-4 text-slate-400 absolute left-3 top-3 pointer-events-none" />
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   required
+                  autoComplete="current-password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••••••"
-                  className="w-full pl-9 pr-4 py-2.5 rounded-xl bg-white border border-slate-300 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-colors shadow-xs"
+                  className="w-full pl-9 pr-10 py-2.5 rounded-xl bg-white border border-slate-300 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-colors shadow-xs"
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-3 text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                >
+                  {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                </button>
               </div>
             </div>
 
