@@ -7,8 +7,8 @@ async function main() {
   console.log("🌱 Starting database seeding for Shahariyas's Portfolio...");
 
   // 1. Admin Account
-  const adminEmail = process.env.ADMIN_EMAIL || "shahariyaschatheri10@gmail.com";
-  const rawPassword = process.env.ADMIN_PASSWORD || "Shahariyas@Admin2026!";
+  const adminEmail = process.env.ADMIN_EMAIL || "admin@example.com";
+  const rawPassword = process.env.ADMIN_PASSWORD || "ChangeMeInEnv123!";
   const hashedPassword = await bcrypt.hash(rawPassword, 10);
 
   await prisma.admin.upsert({

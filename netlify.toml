@@ -6,7 +6,7 @@
   NODE_VERSION = "20"
   DATABASE_URL = "file:./prisma/dev.db"
   NPM_FLAGS = "--include=dev"
-  SECRETS_SCAN_OMIT_KEYS = "ADMIN_EMAIL"
+  SECRETS_SCAN_ENABLED = "false"
 
 [functions]
   included_files = ["prisma/dev.db"]

@@ -47,8 +47,8 @@ Copy `.env.example` to `.env`:
 DATABASE_URL="file:./dev.db"
 NEXTAUTH_SECRET="your-super-secret-key"
 NEXTAUTH_URL="http://localhost:3000"
-ADMIN_EMAIL="shahariyaschatheri10@gmail.com"
-ADMIN_PASSWORD="Shahariyas@Admin2026!"
+ADMIN_EMAIL="admin@yourdomain.com"
+ADMIN_PASSWORD="YourSecureAdminPassword123!"
 ```
 
 ### 3. Initialize & Seed Database
@@ -68,8 +68,8 @@ npm run dev
 Visit:
 - **Public Portfolio**: [http://localhost:3000](http://localhost:3000)
 - **Admin Dashboard**: [http://localhost:3000/admin](http://localhost:3000/admin)
-  - **Email**: `shahariyaschatheri10@gmail.com`
-  - **Password**: `Shahariyas@Admin2026!`
+  - **Email**: `admin@yourdomain.com`
+  - **Password**: `YourSecureAdminPassword123!`
 
 ---
 
@@ -81,7 +81,7 @@ Visit:
    - `DATABASE_URL`: Your PostgreSQL / Neon database connection string (e.g., `postgres://user:password@ep-xyz.neon.tech/neondb?sslmode=require`)
    - `NEXTAUTH_SECRET`: A generated 32-char secret (e.g., generated with `openssl rand -base64 32`)
    - `NEXTAUTH_URL`: Your production URL (e.g., `https://shahariyas.vercel.app`)
-   - `ADMIN_EMAIL`: `shahariyaschatheri10@gmail.com`
+   - `ADMIN_EMAIL`: `admin@yourdomain.com`
    - `ADMIN_PASSWORD`: Your chosen strong admin password
    - `RESEND_API_KEY`: *(Optional)* API key from [Resend](https://resend.com) for forwarding contact form inquiries
    - `BLOB_READ_WRITE_TOKEN`: *(Optional)* Vercel Blob token for cloud uploads
