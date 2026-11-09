@@ -4,7 +4,11 @@
 
 [build.environment]
   NODE_VERSION = "20"
-  DATABASE_URL = "file:./dev.db"
+  DATABASE_URL = "file:./prisma/dev.db"
+  NPM_FLAGS = "--include=dev"
+
+[functions]
+  included_files = ["prisma/dev.db"]
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
