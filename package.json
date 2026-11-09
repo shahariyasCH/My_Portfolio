@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
+    "@netlify/plugin-nextjs": "^5.16.6",
     "@prisma/client": "^5.18.0",
     "@vercel/blob": "^2.8.0",
     "bcryptjs": "^2.4.3",
