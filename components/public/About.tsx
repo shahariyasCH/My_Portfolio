@@ -12,29 +12,29 @@ interface AboutProps {
 }
 
 export default function About({
-  name = "Shahariyas",
-  title = "Python Full Stack Developer & Lead Automation Engineer",
-  headline = "Bridging robust backend engineering, full-stack web development, and robotic process automation.",
-  statement = "Professional Python Full Stack Developer with advanced backend expertise in Django REST Framework and frontend proficiency in React JS. Specializes in designing scalable and secure REST APIs, managing database migrations, and implementing robust JWT authentication systems.",
+  name = "Shahariyas C",
+  title = "AI Automation Developer | Full Stack Developer | n8n | LLMs & RAG",
+  headline = "Engineering production-ready AI automations, agentic workflows, and secure full stack web applications.",
+  statement = "Full Stack Developer and AI Automation Developer with 2+ years of experience building secure web applications and AI-powered automation. Full stack expertise in Django, Node.js, React.js, Next.js, REST APIs, JWT authentication, PostgreSQL, Docker and CI/CD. Delivered 50+ n8n workflows for 20+ clients, plus AI agents and chatbots built on OpenAI, Gemini and the WhatsApp Business API for customer engagement.",
   location = "Dubai, UAE",
 }: AboutProps) {
   const highlights = [
     {
-      title: "Backend Integrity & Security",
-      desc: "Designing modular REST architectures with Django REST Framework, JWT role-based access control, and optimized database indexing.",
-      icon: ShieldCheck,
+      title: "Agentic AI & RAG Engineering",
+      desc: "Architecting context-aware AI chatbots and autonomous agents using OpenAI, Gemini, LangChain, LangGraph, and RAG from business knowledge bases.",
+      icon: Bot,
       color: "text-indigo-600 bg-indigo-50 border-indigo-100",
     },
     {
-      title: "Autonomous Workflows & RPA",
-      desc: "Building self-healing bot pipelines using UiPath, Python, and n8n that process high volumes of data with automated retries and exception queues.",
+      title: "n8n & Workflow Orchestration",
+      desc: "Delivered 50+ n8n agentic/non-agentic workflows for 20+ clients across WhatsApp, Instagram & Facebook with 24/7 automated error recovery.",
       icon: Zap,
       color: "text-sky-600 bg-sky-50 border-sky-100",
     },
     {
-      title: "Clean Data & Scalable Systems",
-      desc: "Managing smooth schema migrations, query tuning with PostgreSQL & Redis, and deploying maintainable services for web and mobile.",
-      icon: Database,
+      title: "Full Stack & Backend Security",
+      desc: "Engineering modular Django & Node.js backends with RESTful APIs, JWT authentication, RBAC, PostgreSQL, React, Next.js, and Docker.",
+      icon: ShieldCheck,
       color: "text-violet-600 bg-violet-50 border-violet-100",
     },
   ];
@@ -65,18 +65,18 @@ export default function About({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           <div className="lg:col-span-7 space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed">
             <p>
-              I am <strong className="text-slate-900 font-semibold">{name}</strong>, a developer based in {location}. I spend most of my time designing backend architectures, deploying full-stack web platforms, and engineering autonomous bot pipelines that replace repetitive manual tasks.
+              I am <strong className="text-slate-900 font-semibold">{name}</strong>, an AI Automation & Full Stack Developer based in {location} (Immediate joiner, open to relocation). I specialize in designing autonomous AI agents, enterprise workflow automations, and resilient full stack web applications.
             </p>
             <p className="text-slate-800">
               {statement}
             </p>
             <p>
-              In my day-to-day work across <span className="font-semibold text-slate-900">Intellijhon</span> and <span className="font-semibold text-slate-900">Luminar Techno Lab</span>, I bridge two worlds: developing clean, modular web services with <span className="text-indigo-600 font-medium">Django & React</span>, and building robotic automation flows with <span className="text-indigo-600 font-medium">UiPath, Python, and n8n</span>. I value clean code, predictable database design, and systems that just work without constant firefighting.
+              In my work across <span className="font-semibold text-slate-900">IntelliJohn Labs</span> and <span className="font-semibold text-slate-900">Luminar Techno Lab</span>, I have delivered over 50 n8n workflows for 20+ clients, integrated intelligent AI chatbots via OpenAI, Gemini, and the WhatsApp Business API that captured 200+ leads, and built full stack platforms in <span className="text-indigo-600 font-medium">Django, Node.js, React.js, and Next.js</span>. I focus on turning complex business requirements into dependable, production-ready systems.
             </p>
 
             <div className="pt-2">
               <button
-                onClick={() => askAssistant("backend architecture and automation")}
+                onClick={() => askAssistant("AI automation, n8n workflows, and full stack development")}
                 className="ai-pill px-3.5 py-1.5 rounded-xl text-xs font-medium text-slate-700 hover:text-indigo-600 flex items-center gap-2 cursor-pointer"
               >
                 <Bot className="w-3.5 h-3.5 text-indigo-500" />

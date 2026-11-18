@@ -10,14 +10,14 @@ interface RecruiterCTAProps {
 }
 
 export default function RecruiterCTA({
-  availabilityStatus = "Open to opportunities",
+  availabilityStatus = "Immediate Joiner | Open to relocation",
   resumeUrl = "/resume.pdf",
   email = "shahariyaschatheri10@gmail.com",
 }: RecruiterCTAProps) {
   const openAssistant = () => {
     window.dispatchEvent(
       new CustomEvent("open-shahariyas-assistant", {
-        detail: { query: "I'm interested in hiring Shahariyas. What is his availability and best contact method?" },
+        detail: { query: "I'm interested in hiring Shahariyas C. What is his availability and best contact method?" },
       })
     );
   };
@@ -47,7 +47,7 @@ export default function RecruiterCTA({
               <span className="ai-gradient-accent">Let's build.</span>
             </h2>
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              Seeking engineering roles where I can architect robust backend services with Python Django, streamline high-volume business workflows via RPA, and deliver modern full-stack web applications.
+              Seeking engineering roles where I can architect production AI agents, build 24/7 n8n workflows, deploy full-stack web platforms with Django and Next.js, and deliver high-impact automation systems.
             </p>
           </div>
 

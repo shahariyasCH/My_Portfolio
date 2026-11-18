@@ -2,33 +2,37 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Shahariyas | Python Full Stack Developer & Automation Engineer",
+  title: "Shahariyas C | AI Automation Developer | Full Stack Developer | n8n | LLMs & RAG",
   description:
-    "Production-grade developer portfolio of Shahariyas: Python Full Stack Developer, Lead Automation Engineer, and AI & Backend specialist.",
+    "Official portfolio of Shahariyas C: AI Automation Developer & Full Stack Developer with 2+ years of experience building secure web applications and AI-powered automation (n8n, LLMs, RAG, Django, Node.js, React.js, Next.js).",
   keywords: [
-    "Shahariyas",
-    "Python Full Stack Developer",
-    "Django REST Framework",
-    "UiPath Automation",
+    "Shahariyas C",
+    "AI Automation Developer",
+    "Full Stack Developer",
+    "n8n Developer",
+    "LLMs and RAG",
+    "AI Agents",
+    "Django REST",
     "React.js Developer",
-    "Automation Engineer Kerala",
-    "Backend Engineer",
+    "Next.js Developer",
+    "Dubai UAE Developer",
   ],
-  authors: [{ name: "Shahariyas" }],
-  creator: "Shahariyas",
+  authors: [{ name: "Shahariyas C" }],
+  creator: "Shahariyas C",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://shahariyas.dev",
-    title: "Shahariyas | Python Full Stack Developer & Automation Engineer",
+    url: "https://shahariyas.netlify.app",
+    title: "Shahariyas C | AI Automation Developer | Full Stack Developer | n8n | LLMs & RAG",
     description:
-      "Building scalable web applications, intelligent automations, and reliable backend systems.",
+      "Full Stack Developer and AI Automation Developer with 2+ years of experience building secure web applications and AI-powered automation.",
     siteName: "Shahariyas Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shahariyas | Python Full Stack Developer & Automation Engineer",
-    description: "Building scalable web applications, intelligent automations, and reliable backend systems.",
+    title: "Shahariyas C | AI Automation Developer | Full Stack Developer | n8n | LLMs & RAG",
+    description:
+      "Full Stack Developer and AI Automation Developer with 2+ years of experience building secure web applications and AI-powered automation.",
   },
   icons: {
     icon: "/favicon.ico",

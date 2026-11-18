@@ -30,7 +30,7 @@ export default function Projects({ projects = [] }: ProjectsProps) {
             Selected Projects
           </h2>
           <p className="text-sm sm:text-base text-slate-600 max-w-2xl">
-            Production-grade web platforms and emergency coordination systems architected with Django, React, and PostgreSQL.
+            Full-stack SaaS platforms, web applications, and emergency coordination systems architected with Next.js, Django, Flutter, and PostgreSQL.
           </p>
         </div>
 

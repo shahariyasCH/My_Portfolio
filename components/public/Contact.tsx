@@ -27,8 +27,8 @@ export default function Contact({
   email = "shahariyaschatheri10@gmail.com",
   phone = "+971 54 153 3979",
   location = "Dubai, UAE",
-  githubUrl = "https://github.com",
-  linkedinUrl = "https://linkedin.com",
+  githubUrl = "https://github.com/shahariyasCH",
+  linkedinUrl = "https://linkedin.com/in/shahariyas-c-35ba31309",
 }: ContactProps) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -208,7 +208,7 @@ export default function Contact({
                   <label className="text-xs font-medium text-slate-700">Subject (Optional)</label>
                   <input
                     {...register("subject")}
-                    placeholder="Python / Automation Developer Opportunity"
+                    placeholder="AI Automation / Full Stack Opportunity"
                     className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/80 border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors"
                   />
                 </div>

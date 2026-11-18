@@ -125,9 +125,9 @@ ${education
     (edu: any) => `
 * Degree: ${edu.degree}
   Institution: ${edu.institution} (${edu.location})
-  Period: ${edu.startYear} - ${edu.endYear}
+  Period: ${edu.startDate} - ${edu.endDate}
   GPA/Marks: ${edu.gpa || "N/A"}
-  Details: ${edu.details || ""}
+  Coursework: ${parseJsonArray(edu.coursework).join(", ")}
 `
   )
   .join("")}
@@ -243,7 +243,7 @@ ${knowledgeBase}
     console.error("Chat API error:", error);
     return NextResponse.json(
       {
-        text: "I experienced a brief connection hiccup. Shahariyas is a Python Full Stack Developer & Lead Automation Engineer. Feel free to explore his projects, experience, or contact him directly!",
+        text: "I experienced a brief connection hiccup. Shahariyas C is an AI Automation Developer & Full Stack Developer (n8n, LLMs & RAG, Python, Django, React, Next.js). Feel free to explore his projects, experience, or contact him directly!",
         action: {
           type: "scroll",
           target: "#projects",
@@ -344,6 +344,8 @@ function generateGroundedResponse(
   if (
     q.includes("project") ||
     q.includes("built") ||
+    q.includes("resumeat") ||
+    q.includes("saas") ||
     q.includes("ecommerce") ||
     q.includes("dams") ||
     q.includes("app") ||
@@ -394,24 +396,27 @@ function generateGroundedResponse(
     const eduList = education
       .map(
         (e) =>
-          `• ${e.degree} from ${e.institution} (${e.startYear} - ${e.endYear}${e.gpa ? `, GPA: ${e.gpa}` : ""})`
+          `• ${e.degree} from ${e.institution} (${e.startDate} - ${e.endDate}${e.gpa ? `, GPA: ${e.gpa}` : ""})`
       )
       .join("\n");
     return `Shahariyas's educational credentials:\n${eduList}`;
   }
 
-  // 8. Automation / RPA
+  // 8. Automation / AI / n8n
   if (
     q.includes("automation") ||
     q.includes("bot") ||
     q.includes("rpa") ||
-    q.includes("n8n")
+    q.includes("n8n") ||
+    q.includes("agent") ||
+    q.includes("rag") ||
+    q.includes("llm")
   ) {
-    return `As Lead Automation Developer at Intellijhon, Shahariyas designs scalable UiPath and n8n autonomous bots for document processing, web scraping, queue management, and enterprise workflow optimization.`;
+    return `As Lead AI Automation Developer at IntelliJohn Labs, Shahariyas has delivered 50+ agentic and non-agentic n8n workflows for 20+ clients across WhatsApp, Instagram, and Facebook. He also builds context-aware AI chatbots with OpenAI, Google Gemini, LangChain, and RAG workflows that capture leads and automate business operations 24/7.`;
   }
 
   // Default grounded response
-  return `${profile.name} is a ${profile.title} specialized in Python, Django REST Framework, React, and UiPath automations. You can ask me about his work experience, projects, skills, education, or how to contact him.`;
+  return `${profile.name} is an ${profile.title} specialized in AI automation, n8n workflows, LLMs & RAG, Python, Django, React.js, and Next.js. You can ask me about his work experience, projects, technical skills, education, or how to contact him.`;
 }
 
 /**

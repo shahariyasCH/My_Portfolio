@@ -11,8 +11,8 @@ interface NavbarProps {
 }
 
 export default function Navbar({
-  name = "Shahariyas",
-  availabilityStatus = "Open to opportunities",
+  name = "Shahariyas C",
+  availabilityStatus = "Immediate Joiner | Open to relocation",
   resumeUrl = "/resume.pdf",
 }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -63,7 +63,7 @@ export default function Navbar({
               {name}
             </span>
             <span className="text-[10px] text-slate-500 font-mono">
-              Python • Automation
+              AI Automation • Full Stack
             </span>
           </div>
         </Link>

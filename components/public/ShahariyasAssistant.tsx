@@ -44,8 +44,8 @@ interface AssistantProps {
 }
 
 export default function ShahariyasAssistant({
-  name = "Shahariyas",
-  title = "Python Full Stack Developer & Lead Automation Engineer",
+  name = "Shahariyas C",
+  title = "AI Automation Developer | Full Stack Developer | n8n | LLMs & RAG",
   email = "shahariyaschatheri10@gmail.com",
   phone = "+971 54 153 3979",
   location = "Dubai, UAE",
@@ -62,7 +62,7 @@ export default function ShahariyasAssistant({
     {
       id: "intro-1",
       sender: "assistant",
-      text: `Hello! I'm Shahariyas Assistant, an interactive voice and chat AI built to answer anything about Shahariyas—his backend engineering experience, Python & Django skills, UiPath automations, featured projects, or how to hire him. How can I help you today?`,
+      text: `Hello! I'm Shahariyas Assistant, an interactive voice and chat AI built to answer anything about Shahariyas—his AI automation expertise, full stack development, 50+ n8n workflows, LLMs & RAG systems, featured projects, or how to hire him. How can I help you today?`,
       timestamp: "Just now",
     },
   ]);

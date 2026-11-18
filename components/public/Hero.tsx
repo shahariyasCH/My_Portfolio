@@ -32,11 +32,11 @@ interface HeroProps {
 }
 
 export default function Hero({
-  name = "Shahariyas",
-  title = "Python Full Stack Developer & Lead Automation Engineer",
-  headline = "Building scalable web backends, intelligent process automations, and resilient distributed architectures.",
-  statement = "Specialized in designing robust Django REST APIs, modern React interfaces, and enterprise UiPath robotic process automations that eliminate manual overhead.",
-  availabilityStatus = "Open to opportunities",
+  name = "Shahariyas C",
+  title = "AI Automation Developer | Full Stack Developer | n8n | LLMs & RAG",
+  headline = "Full Stack Developer and AI Automation Developer with 2+ years of experience building secure web applications and AI-powered automation.",
+  statement = "Delivered 50+ n8n workflows for 20+ clients, plus AI agents and chatbots built on OpenAI, Gemini and WhatsApp Business API. Experienced in agentic AI, RAG, Django, Node.js, React.js, Next.js, PostgreSQL and Docker.",
+  availabilityStatus = "Immediate Joiner | Open to relocation",
   resumeUrl = "/resume.pdf",
   email = "shahariyaschatheri10@gmail.com",
   location = "Dubai, UAE",
@@ -115,14 +115,14 @@ export default function Hero({
               </div>
               <div className="flex flex-wrap gap-2">
                 <button
-                  onClick={() => openAssistantWithQuery("Tell me about your experience at Intellijhon and Luminar")}
+                  onClick={() => openAssistantWithQuery("Tell me about your experience at IntelliJohn Labs and Luminar Techno Lab")}
                   className="ai-pill px-3 py-1.5 rounded-xl text-xs font-medium text-slate-700 hover:text-indigo-600 flex items-center gap-1.5 cursor-pointer"
                 >
                   <Bot className="w-3.5 h-3.5 text-indigo-500" />
                   <span>"Tell me about your experience"</span>
                 </button>
                 <button
-                  onClick={() => openAssistantWithQuery("What is your Python and automation tech stack?")}
+                  onClick={() => openAssistantWithQuery("What is your AI automation, LLM, and full stack tech stack?")}
                   className="ai-pill px-3 py-1.5 rounded-xl text-xs font-medium text-slate-700 hover:text-indigo-600 flex items-center gap-1.5 cursor-pointer"
                 >
                   <Cpu className="w-3.5 h-3.5 text-sky-500" />
@@ -208,9 +208,9 @@ export default function Hero({
                   </div>
                   <div className="text-xs space-y-0.5">
                     <div className="font-bold text-slate-900">
-                      Lead Automation Developer
+                      Lead AI Automation Developer
                     </div>
-                    <div className="text-slate-600 font-medium">Intellijhon • Kochi, Kerala</div>
+                    <div className="text-slate-600 font-medium">IntelliJohn Labs • Remote</div>
                     <div className="text-[11px] text-slate-400 font-mono">Sep 2025 – Present</div>
                   </div>
                 </div>
@@ -221,10 +221,10 @@ export default function Hero({
                   </div>
                   <div className="text-xs space-y-0.5">
                     <div className="font-bold text-slate-900">
-                      Python Full Stack Developer
+                      Full Stack Developer
                     </div>
                     <div className="text-slate-600 font-medium">Luminar Techno Lab • Kochi</div>
-                    <div className="text-[11px] text-slate-400 font-mono">Sep 2024 – Present</div>
+                    <div className="text-[11px] text-slate-400 font-mono">Aug 2024 – Jun 2025</div>
                   </div>
                 </div>
               </div>
@@ -235,7 +235,7 @@ export default function Hero({
                   Core Technologies
                 </div>
                 <div className="flex flex-wrap gap-1.5">
-                  {["Python", "Django REST", "React.js", "UiPath", "PostgreSQL", "n8n", "JWT Auth", "Docker"].map(
+                  {["n8n", "AI Agents", "RAG & LLMs", "Python", "Django", "React.js", "Next.js", "PostgreSQL", "Docker"].map(
                     (tag) => (
                       <span
                         key={tag}

@@ -13,10 +13,10 @@ interface FooterProps {
 }
 
 export default function Footer({
-  name = "Shahariyas",
-  title = "Python Full Stack Developer & Automation Engineer",
-  githubUrl = "https://github.com",
-  linkedinUrl = "https://linkedin.com",
+  name = "Shahariyas C",
+  title = "AI Automation Developer | Full Stack Developer | n8n | LLMs & RAG",
+  githubUrl = "https://github.com/shahariyasCH",
+  linkedinUrl = "https://linkedin.com/in/shahariyas-c-35ba31309",
   resumeUrl = "/resume.pdf",
 }: FooterProps) {
   const scrollToTop = () => {
